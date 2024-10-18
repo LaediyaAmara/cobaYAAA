@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote Generator with History</title>
+    <title>MOTIVASI UNTUK JACK DARI AMARA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,84 +11,106 @@
             text-align: center;
             margin-top: 50px;
         }
+        .screen {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
         #quote {
             font-size: 24px;
             font-weight: bold;
-            color: #4CAF50;
+            color: #160909;
             margin-bottom: 20px;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #f31717;
             color: white;
             border: none;
             border-radius: 5px;
+            margin: 10px;
         }
         button:hover {
             background-color: #45a049;
         }
-        table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        td {
-            background-color: #f9f9f9;
-        }
     </style>
 </head>
 <body>
-    <div id="quote">QUOTES AMAROU</div>
-    <button onclick="generateQuote()">Get Quote</button>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <h1>YAHOOOOOOOOOOOOOOO!😍😍</h1>
+        <input type="text" placeholder="Masukkan nama Anda" id="username" />
+        <br>
+        <button onclick="showPurposeScreen()">Masuk</button>
+    </div>
 
-    <h2>AMAROU MOTIVATION</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Quote</th>
-            </tr>
-        </thead>
-        <tbody id="quote-history">
-            <!-- Quote history will appear here -->
-        </tbody>
-    </table>
+    <!-- Purpose Screen -->
+    <div id="purpose-screen" class="screen">
+        <h1>HALOO SAYANGKUUUUUUUU</h1>
+        <p>YAHOOO My JACKK hehe lucu kann, ini tuh Khusus buat kamu kalo
+            orang selain kamu ya gabakal bisa 😎🥵
+        </p>
+        <button onclick="showQuoteScreen()">Lanjut</button>
+    </div>
+
+    <!-- Quote Screen -->
+    <div id="quote-screen" class="screen">
+        <div id="quote">QUOTES AMAROU</div>
+        <button onclick="generateQuote()">Dapatkan Kutipan</button>
+        <h2>MOTIVASI DARI AMARAOUUU</h2>
+    </div>
 
     <script>
         const quotes = [
             "YAHOOOOOOOOOOOOOOO",
-            "MY BOYFRIENDDDDDD",
-            "Believe in yourself, you’ve got this!",
-            "I WANT YOU TO THE BONE",
-            "YOU ARE BEST PART ",
-            "KAIZO KUNI OREWA NARU OTOKODA ",
+            "MY BOYFRIENDDDDDD😎😎😎😎",
+            "BELIEVE IN YOURSELF, YOU'VE GOT THIS!🥰🥰",
+            "I WANT YOU TO THE BONE🥺",
+            "YOU ARE BEST PART😍🤩🤩",
+            "KAIZO KUNI OREWA NARU OTOKODA",
+            "I LOVE YOU 😘😘😍",
+            "RUOK?🥺",
+            "UR MY FAV BOY!😍😍🤩🤩",
+            "HOW'S LIFE?🥺🥺",
+            "SAYANGKUUUUUUUU",
+            "CINTAKUUUUUUUU",
+            "THANKU FOR LOVING ME🥰🥺",
+            "LOVEYOUUUUUUUUU 30000000000🥵😍😍😘",
+            "ILYCUAMFB😎😎",
+            "BISBG",
+            "AKU PADAMU SAYANG😘😘",
+            "ALWAYS SEMANGAYY CAYANGKUUU🥰🥰",
+            "YOU CAN DO IT🥰🥰",
+            "TRAVEL TO JAPAN WITH ME?😎😎",
+            "U ARE SOOOOO SWEETTTT🥵🥵",
+            "U ARE KIND BF",
         ];
 
-        let quoteCount = 0;
+        // Fungsi untuk menampilkan halaman tujuan
+        function showPurposeScreen() {
+            const username = document.getElementById("username").value.trim();
+            if (username.toLowerCase() === "jack") {
+                document.getElementById("login-screen").classList.remove("active");
+                document.getElementById("purpose-screen").classList.add("active");
+            } else {
+                alert("Hanya Jack yang dapat masuk");
+            }
+        }
 
+        // Fungsi untuk menampilkan halaman kutipan
+        function showQuoteScreen() {
+            document.getElementById("purpose-screen").classList.remove("active");
+            document.getElementById("quote-screen").classList.add("active");
+        }
+
+        // Fungsi untuk menghasilkan kutipan acak
         function generateQuote() {
             const randomIndex = Math.floor(Math.random() * quotes.length);
             const randomQuote = quotes[randomIndex];
             document.getElementById("quote").textContent = randomQuote;
-
-            // Add to quote history
-            quoteCount++;
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `<td>${quoteCount}</td><td>${randomQuote}</td>`;
-            document.getElementById("quote-history").appendChild(newRow);
         }
     </script>
 </body>
